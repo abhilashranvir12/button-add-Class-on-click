@@ -1,8 +1,13 @@
-let buttons = document.querySelectorAll("button");
+const buttons = document.querySelectorAll("button");
 
 buttons.forEach((button) => {
-  button.addEventListener("click", function () {
-    buttons.forEach((btn) => btn.classList.remove("active"));
-    this.classList.add("active");
-  });
+  button.addEventListener("click", updateActiveFilter);
 });
+
+function updateActiveFilter(event) {
+  const activeButton = document.querySelector(".active");
+  activeButton.classList.remove("active");
+  //   buttons.forEach((btn) => btn.classList.remove("active"));
+
+  event.target.classList.add("active");
+}
